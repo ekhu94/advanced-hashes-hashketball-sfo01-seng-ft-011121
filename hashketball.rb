@@ -198,3 +198,19 @@ def player_stats(name)
   end
 end
 
+def biggest_shoe_size
+  hash = game_hash
+  max = 0
+  hash.each do |loc, team|
+    team.each do |k, v|
+      if k == :players
+        v.each do |player|
+          max = player[:shoe] if player[:shoe] > max
+        end
+      end
+    end
+  end
+  return max
+end
+
+puts biggest_shoe_size
