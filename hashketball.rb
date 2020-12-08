@@ -126,4 +126,18 @@ def game_hash
   }
 end
 
-# Write code here
+def add_up_scores(hash)
+  sum = 0
+  hash.each do |k, v|
+    sum += v if v.is_a? Integer
+  end
+  sum
+end
+
+def num_points_scored(name)
+  game_hash.each do |loc|
+    loc[:players].each do |player|
+      return player[:points] + player[:slam_dunks] if name == playe[:player_name]
+    end
+  end
+end
