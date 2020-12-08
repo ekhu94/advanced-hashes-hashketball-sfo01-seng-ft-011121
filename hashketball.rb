@@ -260,7 +260,10 @@ def total_points(team_name)
 end
 
 def winning_team
-  
+  hash = game_hash
+  home = total_points(hash[:home][:team_name])
+  away = total_points(hash[:away][:team_name])
+  return home > away ? hash[:home][:team_name] : hash[:away][:team_name]
 end
 
 puts total_points("Charlotte Hornets")
