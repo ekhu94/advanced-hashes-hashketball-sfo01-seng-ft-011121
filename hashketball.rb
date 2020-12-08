@@ -266,4 +266,4 @@ def winning_team
   return home > away ? hash[:home][:team_name] : hash[:away][:team_name]
 end
 
-puts total_points("Charlotte Hornets")
+puts winning_team
