@@ -167,3 +167,20 @@ def team_names
   hash.each { |loc, team| arr << team[:team_name] }
   arr
 end
+
+def player_numbers(team_name)
+  hash = game_hash
+  arr = []
+  hash.each do |loc, team|
+    if team[:team_name] == team_name
+      team.each do |k, v|
+      if k == :players
+        v.each do |player|
+          arr << player[:number]
+        end
+      end
+    end
+    end
+  end
+  arr
+end
