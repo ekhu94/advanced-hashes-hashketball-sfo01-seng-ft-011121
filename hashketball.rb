@@ -126,18 +126,11 @@ def game_hash
   }
 end
 
-def add_up_scores(hash)
-  sum = 0
-  hash.each do |k, v|
-    sum += v if v.is_a? Integer
-  end
-  sum
-end
-
 def num_points_scored(name)
-  game_hash.each do |loc|
-    loc[:players].each do |player|
-      return player[:points] + player[:slam_dunks] if name == playe[:player_name]
+  hash = game_hash
+  hash.each do |loc, team|
+    team.each do |k, v|
+      print v if k == :colors
     end
   end
 end
