@@ -263,4 +263,4 @@ def winning_team
   
 end
 
-puts total_points("Brooklyn Nets")
+puts total_points("Charlotte Hornets")
