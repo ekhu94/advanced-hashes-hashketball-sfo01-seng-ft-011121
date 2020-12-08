@@ -126,13 +126,17 @@ def game_hash
   }
 end
 
-def num_points_scored
+def num_points_scored(name)
   hash = game_hash
   hash.each do |loc, team|
     team.each do |k, v|
-      print v if k == :colors
+      if k == :players
+        v.each do |player|
+          return player[:points] if player[:player_name] == name
+        end
+      end
     end
   end
 end
 
-num_points_scored
+num_points_scored("Ben Gordon")
