@@ -213,4 +213,16 @@ def biggest_shoe_size
   return max
 end
 
-puts biggest_shoe_size
+def big_shoe_rebounds
+  hash = game_hash
+  size = biggest_shoe_size
+  hash.each do |loc, team|
+    team.each do |k, v|
+      if k == :players
+        v.each do |player|
+          return player[:rebounds] if player[:shoe] == size
+        end
+      end
+    end
+  end
+end
