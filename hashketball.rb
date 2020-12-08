@@ -242,4 +242,25 @@ def most_points_scored
   return max
 end
 
-puts most_points_scored
+def total_points(team_name)
+  hash = game_hash
+  total = 0
+  hash.each do |loc, team|
+    if team[:team_name] == team_name
+      team.each do |k, v|
+        if k == :players
+          v.each do |player|
+            total += player[:points]
+          end
+        end
+      end
+    end
+  end
+  total
+end
+
+def winning_team
+  
+end
+
+puts total_points
