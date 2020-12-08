@@ -160,3 +160,10 @@ def team_colors(team_name)
     end
   end
 end
+
+def team_names
+  hash = game_hash
+  arr = []
+  hash.each { |loc, team| arr << team[:team_name] }
+  arr
+end
