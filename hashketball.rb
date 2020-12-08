@@ -126,7 +126,7 @@ def game_hash
   }
 end
 
-def num_points_scored(name)
+def num_points_scored
   hash = game_hash
   hash.each do |loc, team|
     team.each do |k, v|
@@ -134,3 +134,5 @@ def num_points_scored(name)
     end
   end
 end
+
+num_points_scored
