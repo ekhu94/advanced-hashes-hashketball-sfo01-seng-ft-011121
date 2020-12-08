@@ -281,6 +281,21 @@ def longest_name_count
   max
 end
 
+def most_steals
+  hash = game_hash
+  max = 0
+  hash.each do |loc, team|
+    team.each do |k, v|
+      if k == :players
+        v.each do |player|
+          max = player[:steals] if player[:steals] > max
+        end
+      end
+    end
+  end
+  return max
+end
+
 def player_with_longest_name
   hash = game_hash
   count = longest_name_count
@@ -295,4 +310,4 @@ def player_with_longest_name
   end
 end
 
-puts player_with_longest_name
+puts most_steals
