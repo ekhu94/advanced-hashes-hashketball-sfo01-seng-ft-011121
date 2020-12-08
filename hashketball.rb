@@ -266,4 +266,33 @@ def winning_team
   return home > away ? hash[:home][:team_name] : hash[:away][:team_name]
 end
 
-puts winning_team
+def longest_name_count
+  hash = game_hash
+  max = 0
+  hash.each do |loc, team|
+    team.each do |k, v|
+      if k == :players
+        v.each do |player|
+          max = player[:player_name].length if player[:player_name].length > max
+        end
+      end
+    end
+  end
+  max
+end
+
+def player_with_longest_name
+  hash = game_hash
+  count = longest_name_count
+  hash.each do |loc, team|
+    team.each do |k, v|
+      if k == :players
+        v.each do |player|
+          return player[:player_name] if player[:player_name].length == count
+        end
+      end
+    end
+  end
+end
+
+puts player_with_longest_name
